@@ -20,7 +20,8 @@
     <Folder Include="Models\Entities\" />
     <Folder Include="Models\Identities\" />
     <Folder Include="Models\Dtos\" />
-    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Services\" />
     <Folder Include="Views\Partials\" />
   </ItemGroup>
 
