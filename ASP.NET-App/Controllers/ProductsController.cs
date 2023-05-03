@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ASP.NET_App.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP.NET_App.Controllers
 {
@@ -7,11 +8,20 @@ namespace ASP.NET_App.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
+			var viewModel = new ProductsIndexViewModel
+			{
+				All = new GridCollectionViewModel
+				{
+					Title = "All Products",
+					Categories = new List<string> { "All", "Mobile", "Computers" }
+				}
+			};
+			return View(viewModel);
 		}
 		public IActionResult Details(string id)
 		{
 			return View();
 		}
 	}
+
 }
