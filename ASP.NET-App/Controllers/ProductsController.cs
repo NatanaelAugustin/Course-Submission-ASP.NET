@@ -13,7 +13,7 @@ namespace ASP.NET_App.Controllers
 				All = new GridCollectionViewModel
 				{
 					Title = "All Products",
-					Categories = new List<string> { "All", "Mobile", "Computers" }
+					Categories = new List<string> { "New", "Best selling", "Featured" }
 				}
 			};
 			return View(viewModel);
