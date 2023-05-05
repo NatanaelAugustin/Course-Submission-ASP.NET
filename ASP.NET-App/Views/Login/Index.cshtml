@@ -1,10 +1,11 @@
-﻿@{
-	ViewData["Title"] = "Contact Us";
+﻿@model LoginViewModel
+@{
+	ViewData["Title"] = "Login to your account";
 }
 
 <section class="contact-form">
     <div class="container">
-        <div class="title">Write something</div>
+        <div class="title">@ViewData["Title"]</div>
 
         <form novalidate>
             <div class="name form-group">

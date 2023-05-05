@@ -14,7 +14,7 @@ namespace ASP.NET_App.Controllers
 			return View();
 		}
 		[HttpPost]
-		public IActionResult Register(AccountRegisterViewModel viewModel)
+		public IActionResult Register(RegisterViewModel viewModel)
 		{
 			return View();
 		}
@@ -23,7 +23,7 @@ namespace ASP.NET_App.Controllers
 			return View();
 		}
 		[HttpPost]
-		public IActionResult Login(AccountLoginViewModel viewModel)
+		public IActionResult Login(LoginViewModel viewModel)
 		{
 			return View();
 		}
