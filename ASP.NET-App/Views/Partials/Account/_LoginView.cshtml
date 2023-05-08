@@ -1,0 +1,33 @@
+﻿@model LoginViewModel
+
+<section class="login-form">
+    <div class="container">
+        <div class="title">@ViewData["Title"]</div>
+
+        <form method="post" novalidate>
+
+            <div asp-validation-summary="ModelOnly" class="form-group error"></div>
+
+            <div class="email form-group">
+                <label asp-for="Email">Email*
+                 <a class="error" asp-action="index" asp-controller="register"> Don't have an account yet?</a>
+                </label>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email" class="error"></span>
+            </div>
+            <div class="password form-group">
+                <label asp-for="Password">Password*</label>
+                <input asp-for="Password" />
+                <span asp-validation-for="Email" class="error"></span>
+            </div>
+            <div class="remeberme form-checkbox-group">
+                <label class="custom-checkbox">
+                    <label asp-for="RememberMe"> </label>
+                    <input asp-for="RememberMe">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="btn-theme">Submit</button>
+        </form>
+    </div>
+</section> 

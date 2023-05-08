@@ -17,6 +17,6 @@ namespace ASP.NET_App.Models.ViewModels
 		public string Password { get; set; } = null!;
 
 		[Display(Name = "Keep me logged in")]
-		public bool RemeberMe { get; set; } = false;
+		public bool RememberMe { get; set; } = false;
 	}
 }
