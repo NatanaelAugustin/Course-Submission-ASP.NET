@@ -14,5 +14,8 @@ namespace ASP.NET_App.Models.Contexts
 		public DbSet<AddressEntity> AspNetAdresses { get; set; }
 
 		public DbSet<UserAddressEntity> AspNetUsersAdresses { get; set; }
+
+
+
 	}
 }

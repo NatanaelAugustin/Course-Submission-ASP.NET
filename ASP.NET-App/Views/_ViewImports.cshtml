@@ -3,6 +3,9 @@
 @using ASP.NET_App.Services
 @using ASP.NET_App.Models.Entities
 @using ASP.NET_App.Models.Identities
+@using Microsoft.AspNetCore.Identity;
 
 
 @inject ShowcaseService showcaseService
+@inject SignInManager<AppUser> signInManager
+@inject UserManager<AppUser> userManager

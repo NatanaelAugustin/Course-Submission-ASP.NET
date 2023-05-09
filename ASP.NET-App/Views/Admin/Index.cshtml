@@ -1,4 +1,33 @@
-﻿@{
-	Layout = "_BackofficeLayout";
-	ViewData["Title"] = "Dashboard";
-}
+﻿@model IEnumerable<AppUser>
+
+<div>
+<h1>Welcome to Admin Backoffice</h1>
+<p>Here you can see an overview of all accounts that are registerd at this website</p>
+<div>
+
+    <div>
+    <h1>Admin accounts</h1>
+    @if (User.IsInRole("admin"))
+    {
+        <p>@User.Identity.Name</p>
+    }
+    </div>
+    
+    <div>
+        <h1>Other accounts</h1>
+            @foreach(var item in Model)
+            {
+              <div class="profile">
+                <p>
+                    @item.FirstName
+                    @item.LastName
+                </p>
+   
+                <p>
+                    @item.UserName
+                </p>
+              </div>
+            }
+        </div>
+    </div>
+</div>
