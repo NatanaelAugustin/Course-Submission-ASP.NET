@@ -15,7 +15,10 @@ namespace ASP.NET_App.Models.Contexts
 
 		public DbSet<UserAddressEntity> AspNetUsersAdresses { get; set; }
 
+		public DbSet<ProductEntity> Products { get; set; }
 
+		public DbSet<TagEntity> Tags { get; set; }
 
+		public DbSet<ProductTagEntity> ProductTags { get; set; }
 	}
 }

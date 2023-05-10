@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Entities\CategoryEntity.cs" />
+    <Compile Remove="Models\Entities\ImageEntity.cs" />
+    <Compile Remove="Models\Entities\ProductCategoryEntity.cs" />
+    <Compile Remove="Models\Entities\ProductImageEntity.cs" />
+    <Compile Remove="Models\Entities\ProductReviewEntity.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="compilerconfig.json" />
   </ItemGroup>
 
@@ -16,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Dtos\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
