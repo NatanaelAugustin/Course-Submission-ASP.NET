@@ -1,10 +1,14 @@
 ﻿@model IEnumerable<AppUser>
 
-<div>
-<h1>Welcome to Admin Backoffice</h1>
-<p>Here you can see an overview of all accounts that are registerd at this website</p>
-<div>
+@{
+    ViewData["Title"] = User.FindFirst("DisplayName")?.Value;
+}
+<partial name="/Views/Partials/Components/_Breadcrumb.cshtml" />
 
+<div class="admin-container">
+    <h1>Welcome to Admin Backoffice</h1>
+    <p>Here you can see an overview of all accounts that are registerd at this website</p>
+    <div>
     <div>
     <h1>Admin accounts</h1>
     @if (User.IsInRole("admin"))
@@ -17,7 +21,7 @@
         <h1>Other accounts</h1>
             @foreach(var item in Model)
             {
-              <div class="profile">
+              <div>
                 <p>
                     @item.FirstName
                     @item.LastName

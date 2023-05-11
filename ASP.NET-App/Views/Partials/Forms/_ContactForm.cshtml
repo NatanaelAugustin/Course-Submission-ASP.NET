@@ -1,40 +1,43 @@
-﻿<section class="contact-form">
+﻿@model ContactUsViewModel
+
+<section class="contact-form">
     <div class="container">
         <div class="title">Contact us</div>
         <p>Send us an email and we'll get back to you as soon as possible.</p>
 
-        <form novalidate>
-            <div class="name form-group">
-                <label for="name">Your Name*</label>
-                <input id="name" type="text" class="invalid" required>
-                <span class="error">Your name is required</span>
+         <form method="post" enctype="multipart/form-data" novalidate>
+
+            <div asp-validation-summary="ModelOnly" class="form-group error"></div>
+
+            <div class="firstname form-group">
+                <label asp-for="FirstName"> Firstname</label>
+                <input asp-for="FirstName" />
+                <span asp-validation-for="FirstName" class="error"></span>
             </div>
+
+            <div class="lastname form-group">
+                <label asp-for="LastName"> Lastname</label>
+                <input asp-for="LastName" />
+                <span asp-validation-for="LastName" class="error"></span>
+
             <div class="email form-group">
-                <label for="email">Your Email*</label>
-                <input id="email" type="text" class="invalid">
-                <span class="error">Your email is required</span>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email" class="error"></span>
             </div>
-            <div class="phoneNumber form-group">
-                <label for="phone">Phone Number (optional)</label>
-                <input id="phone" type="text">
-            </div>
-            <div class="companyName form-group">
-                <label for="company">Company (optional)</label>
-                <input id="company" type="text">
-            </div>
-            <div class="message form-group">
-                <label for="message">Message*</label>
-                <textarea id="message" class="invalid"></textarea>
-                <span class="error">Message is required</span>
-            </div>
-            <div class="terms form-checkbox-group">
-                <label class="custom-checkbox">
-                    Save my name, email in the this browser for the next time I comment.
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
+                <div class="phoneNumber form-group">
+                    <label asp-for="PhoneNumber">Phonenumber</label>
+                    <input asp-for="PhoneNumber " />
+                    <span asp-validation-for="PhoneNumber" class="error"></span>
+                </div>
+
+         
+             <div class="message form-group">
+                <label asp-for="Message"> Ask us something!</label>
+                <input asp-for="Message" />
+                <span asp-validation-for="Message" class="error"></span>
+             </div>
             <button class="btn-theme">Submit</button>
         </form>
-    </div>
+       </div>
 </section>

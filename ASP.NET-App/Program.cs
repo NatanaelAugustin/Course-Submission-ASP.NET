@@ -20,6 +20,7 @@ builder.Services.AddScoped<ShowcaseService>();
 builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<SeedService>();
+builder.Services.AddScoped<ContactUsService>();
 
 // Identity
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>

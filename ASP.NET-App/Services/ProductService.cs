@@ -17,5 +17,5 @@ public class ProductService
 		await _productRepository.AddAsync(productEntity);
 	}
 
-	public async Task<IEnumerable<Product>> GetAllAsync();
+
 }
