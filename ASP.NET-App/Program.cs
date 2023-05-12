@@ -30,9 +30,6 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 	x.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<AppContexts>();
 
-
-
-
 // Cookies
 builder.Services.ConfigureApplicationCookie(x =>
 {

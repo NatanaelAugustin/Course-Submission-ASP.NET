@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NET_App.Migrations
 {
     [DbContext(typeof(AppContexts))]
-    [Migration("20230509140414_Test 2")]
-    partial class Test2
+    [Migration("20230512110859_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,89 @@ namespace ASP.NET_App.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AspNetAdresses");
+                });
+
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.ContactUsEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactUs");
+                });
+
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.ProductEntity", b =>
+                {
+                    b.Property<string>("ArticleNumber")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ingress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ArticleNumber");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.ProductTagEntity", b =>
+                {
+                    b.Property<string>("ArticleNumber")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ArticleNumber", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("ProductTags");
+                });
+
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.TagEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("TagName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("ASP.NET_App.Models.Entities.UserAddressEntity", b =>
@@ -277,6 +360,25 @@ namespace ASP.NET_App.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.ProductTagEntity", b =>
+                {
+                    b.HasOne("ASP.NET_App.Models.Entities.ProductEntity", "Product")
+                        .WithMany()
+                        .HasForeignKey("ArticleNumber")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ASP.NET_App.Models.Entities.TagEntity", "Tag")
+                        .WithMany("Products")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Tag");
+                });
+
             modelBuilder.Entity("ASP.NET_App.Models.Entities.UserAddressEntity", b =>
                 {
                     b.HasOne("ASP.NET_App.Models.Entities.AddressEntity", "Address")
@@ -350,6 +452,11 @@ namespace ASP.NET_App.Migrations
             modelBuilder.Entity("ASP.NET_App.Models.Entities.AddressEntity", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.TagEntity", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("ASP.NET_App.Models.Identities.AppUser", b =>
