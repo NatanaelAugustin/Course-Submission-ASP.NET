@@ -1,11 +1,22 @@
-﻿namespace ASP.NET_App.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ASP.NET_App.Models.Entities
 {
 	public class CategoryEntity
 	{
+		[Key]
 		public int Id { get; set; }
 
-		public string CategoryName { get; set; } = null!;
+		[Required]
+		public string Name { get; set; }
 
-		public ICollection<ProductCategoryEntity> Products{ get; set; } = new HashSet<ProductCategoryEntity>();
+		public ICollection<ProductEntity> Products { get; set; }
+	}
+
+	public static class CategoryNames
+	{
+		public const string New = "New";
+		public const string Bestselling = "Bestselling";
+		public const string Featured = "Featured";
 	}
 }

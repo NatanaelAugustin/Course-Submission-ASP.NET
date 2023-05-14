@@ -17,10 +17,8 @@ namespace ASP.NET_App.Models.Contexts
 
 		public DbSet<ProductEntity> Products { get; set; }
 
-		public DbSet<TagEntity> Tags { get; set; }
-
-		public DbSet<ProductTagEntity> ProductTags { get; set; }
-
 		public DbSet<ContactUsEntity> ContactUs { get; set; }
+
+		public DbSet<CategoryEntity> Category { get; set; }
 	}
 }

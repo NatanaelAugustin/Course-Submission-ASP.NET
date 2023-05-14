@@ -6,13 +6,19 @@ public class ProductEntity
 {
 	[Key]
 	public string ArticleNumber { get; set; } = null!;
+
+	[Required]
 	public string? ProductName { get; set; }
+
+	[Required]
 	public string? Ingress { get; set; }
 	public string? Description { get; set; }
 
+	[Required]
+	public decimal Price { get; set; }
 
-	//public ICollection<ProductCategoryEntity> Categories { get; set; } = new HashSet<ProductCategoryEntity>();
-	//public ICollection<ProductImageEntity> Images { get; set; } = new HashSet<ProductImageEntity>();
-	//public ICollection<productReviewEntity> Reviews { get; set; } = new HashSet<productReviewEntity>();
+	public ICollection<CategoryEntity> Categories { get; set; }
+
+
 
 }
