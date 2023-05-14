@@ -24,7 +24,7 @@ namespace ASP.NET_App.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Contact(ContactUsViewModel viewModel)
+		public async Task<IActionResult> ContactUS(ContactUsViewModel viewModel)
 		{
 
 
@@ -33,7 +33,7 @@ namespace ASP.NET_App.Controllers
 				_logger.LogInformation("Saving contact us entity");
 				try
 				{
-					await _contactUsService.ContactUsAsync(viewModel);
+					await _contactUsService.CreateAsync(viewModel);
 					return RedirectToAction("Index");
 				}
 				catch

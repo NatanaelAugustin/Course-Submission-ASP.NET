@@ -13,28 +13,18 @@ namespace ASP.NET_App.Services
 			_context = context;
 		}
 
-		public async Task<bool> ContactUsAsync(ContactUsViewModel viewModel)
+		public async Task<bool> CreateAsync(ContactUsViewModel viewModel)
 		{
 			try
 			{
-				var contactUsEntity = new ContactUsEntity
-				{
-					FirstName = viewModel.FirstName,
-					LastName = viewModel.LastName,
-					Email = viewModel.Email,
-					PhoneNumber = viewModel.PhoneNumber,
-					Message = viewModel.Message
-				};
+				ContactUsEntity contactUsEntity = viewModel;
+
 
 				_context.ContactUs.Add(contactUsEntity);
 				await _context.SaveChangesAsync();
 				return true;
 			}
-			catch (Exception ex)
-			{
-				// Log the exception
-				return false;
-			}
+			catch { return false; }
 		}
 	}
 }
