@@ -1,10 +1,14 @@
 ﻿using ASP.NET_App.Models.Contexts;
 using ASP.NET_App.Models.Entities;
-using ASP.NET_App.Models.ViewModels;
 
 namespace ASP.NET_App.Services
 {
-	public class ContactUsService
+	public interface IContactUsService
+	{
+		Task SaveContactUsInfoAsync(ContactUsEntity contactUsEntity);
+	}
+
+	public class ContactUsService : IContactUsService
 	{
 		private readonly AppContexts _context;
 
@@ -13,18 +17,11 @@ namespace ASP.NET_App.Services
 			_context = context;
 		}
 
-		public async Task<bool> CreateAsync(ContactUsViewModel viewModel)
+		public async Task SaveContactUsInfoAsync(ContactUsEntity contactUsEntity)
 		{
-			try
-			{
-				ContactUsEntity contactUsEntity = viewModel;
-
-
-				_context.ContactUs.Add(contactUsEntity);
-				await _context.SaveChangesAsync();
-				return true;
-			}
-			catch { return false; }
+			_context.ContactUs.Add(contactUsEntity);
+			await _context.SaveChangesAsync();
 		}
 	}
 }
+
