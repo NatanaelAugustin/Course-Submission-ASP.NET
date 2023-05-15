@@ -10,7 +10,7 @@ namespace ASP.NET_App.Models.Entities
 		[Required]
 		public string Name { get; set; }
 
-		public ICollection<ProductEntity> Products { get; set; }
+		public ICollection<ProductCategoryEntity> ProductCategories { get; set; }
 	}
 
 	public static class CategoryNames

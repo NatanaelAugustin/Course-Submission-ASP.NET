@@ -15,9 +15,10 @@ public class ProductEntity
 	public string? Description { get; set; }
 
 	[Required]
+	[DataType("money")]
 	public decimal Price { get; set; }
 
-	public ICollection<CategoryEntity> Categories { get; set; }
+	public ICollection<ProductCategoryEntity> ProductCategories { get; set; }
 
 
 

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NET_App.Migrations
 {
     [DbContext(typeof(AppContexts))]
-    [Migration("20230514142429_categories 2")]
-    partial class categories2
+    [Migration("20230515071756_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,6 +97,30 @@ namespace ASP.NET_App.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ContactUs");
+                });
+
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.ProductCategoryEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductArticleNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductArticleNumber");
+
+                    b.ToTable("ProductCategoryEntity");
                 });
 
             modelBuilder.Entity("ASP.NET_App.Models.Entities.ProductEntity", b =>
@@ -215,21 +239,6 @@ namespace ASP.NET_App.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("CategoryEntityProductEntity", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProductsArticleNumber")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("CategoriesId", "ProductsArticleNumber");
-
-                    b.HasIndex("ProductsArticleNumber");
-
-                    b.ToTable("CategoryEntityProductEntity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -365,6 +374,25 @@ namespace ASP.NET_App.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.ProductCategoryEntity", b =>
+                {
+                    b.HasOne("ASP.NET_App.Models.Entities.CategoryEntity", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ASP.NET_App.Models.Entities.ProductEntity", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductArticleNumber")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("ASP.NET_App.Models.Entities.UserAddressEntity", b =>
                 {
                     b.HasOne("ASP.NET_App.Models.Entities.AddressEntity", "Address")
@@ -382,21 +410,6 @@ namespace ASP.NET_App.Migrations
                     b.Navigation("Address");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CategoryEntityProductEntity", b =>
-                {
-                    b.HasOne("ASP.NET_App.Models.Entities.CategoryEntity", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ASP.NET_App.Models.Entities.ProductEntity", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsArticleNumber")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -453,6 +466,16 @@ namespace ASP.NET_App.Migrations
             modelBuilder.Entity("ASP.NET_App.Models.Entities.AddressEntity", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.CategoryEntity", b =>
+                {
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("ASP.NET_App.Models.Entities.ProductEntity", b =>
+                {
+                    b.Navigation("ProductCategories");
                 });
 
             modelBuilder.Entity("ASP.NET_App.Models.Identities.AppUser", b =>

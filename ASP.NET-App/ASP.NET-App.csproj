@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Compile Remove="Models\Entities\ImageEntity.cs" />
-    <Compile Remove="Models\Entities\ProductCategoryEntity.cs" />
     <Compile Remove="Models\Entities\ProductImageEntity.cs" />
     <Compile Remove="Models\Entities\ProductReviewEntity.cs" />
   </ItemGroup>

@@ -70,6 +70,19 @@ namespace ASP.NET_App.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Category",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Category", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ContactUs",
                 columns: table => new
                 {
@@ -91,26 +104,14 @@ namespace ASP.NET_App.Migrations
                 columns: table => new
                 {
                     ArticleNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Ingress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Ingress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.ArticleNumber);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Tags",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TagName = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tags", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -244,26 +245,28 @@ namespace ASP.NET_App.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductTags",
+                name: "ProductCategoryEntity",
                 columns: table => new
                 {
-                    ArticleNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    TagId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductArticleNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductTags", x => new { x.ArticleNumber, x.TagId });
+                    table.PrimaryKey("PK_ProductCategoryEntity", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductTags_Products_ArticleNumber",
-                        column: x => x.ArticleNumber,
-                        principalTable: "Products",
-                        principalColumn: "ArticleNumber",
+                        name: "FK_ProductCategoryEntity_Category_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Category",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductTags_Tags_TagId",
-                        column: x => x.TagId,
-                        principalTable: "Tags",
-                        principalColumn: "Id",
+                        name: "FK_ProductCategoryEntity_Products_ProductArticleNumber",
+                        column: x => x.ProductArticleNumber,
+                        principalTable: "Products",
+                        principalColumn: "ArticleNumber",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -312,9 +315,14 @@ namespace ASP.NET_App.Migrations
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductTags_TagId",
-                table: "ProductTags",
-                column: "TagId");
+                name: "IX_ProductCategoryEntity_CategoryId",
+                table: "ProductCategoryEntity",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategoryEntity_ProductArticleNumber",
+                table: "ProductCategoryEntity",
+                column: "ProductArticleNumber");
         }
 
         /// <inheritdoc />
@@ -342,7 +350,7 @@ namespace ASP.NET_App.Migrations
                 name: "ContactUs");
 
             migrationBuilder.DropTable(
-                name: "ProductTags");
+                name: "ProductCategoryEntity");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -354,10 +362,10 @@ namespace ASP.NET_App.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Category");
 
             migrationBuilder.DropTable(
-                name: "Tags");
+                name: "Products");
         }
     }
 }
