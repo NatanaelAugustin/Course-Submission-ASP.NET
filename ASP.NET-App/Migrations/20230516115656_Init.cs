@@ -105,6 +105,7 @@ namespace ASP.NET_App.Migrations
                 {
                     ArticleNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductImage = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     Ingress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)

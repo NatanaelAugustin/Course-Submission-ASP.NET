@@ -1,4 +1,13 @@
 ﻿@{
-	ViewData["Title"] = "Product Name";
+    ViewData["Title"] = "Product Name";
 }
 
+@model ASP.NET_App.Models.Entities.ProductEntity
+
+<h1>Product Details</h1>
+
+<img src="@Url.Content("~/images/placeholders/" + Model.ProductImage)" alt="Product Image" />
+<h2>@Model.ProductName</h2>
+<p>@Model.Ingress</p>
+<p>@Model.Description</p>
+<p>@Model.Price</p>

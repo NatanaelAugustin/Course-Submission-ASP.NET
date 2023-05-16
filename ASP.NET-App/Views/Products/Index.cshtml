@@ -2,4 +2,14 @@
 	ViewData["Title"] = "Products";
 } 
 
+@model List<ASP.NET_App.Models.Entities.ProductEntity>
+
+<h1>Products</h1>
+
+<ul>
+    @foreach (var product in Model)
+    {
+        <li><a href="@Url.Action("Details", new { id = product.ArticleNumber })">@product.ProductName @product.ProductImage</a></li>
+    }
+</ul>
 

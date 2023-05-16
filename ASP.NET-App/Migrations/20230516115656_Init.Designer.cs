@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NET_App.Migrations
 {
     [DbContext(typeof(AppContexts))]
-    [Migration("20230515071756_Init")]
+    [Migration("20230516115656_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -137,6 +137,10 @@ namespace ASP.NET_App.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<byte[]>("ProductImage")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("ProductName")
                         .IsRequired()

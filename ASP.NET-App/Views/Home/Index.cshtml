@@ -1,8 +1,17 @@
 ﻿@model HomeIndexViewModel
-@{
-    ViewData["Title"] = "Home";
-}
+
+<h1>@Model.Title</h1>
 
 <partial name="/Views/Partials/Components/_Showcase.cshtml" />
+@foreach (var category in Model.Categories)
+{
+    <h2>@category.Name</h2>
+    <ul>
+        @foreach (var productCategory in category.ProductCategories.Take(10))
+        {
+            <li>@productCategory.Product.ProductName</li>
+        }
+    </ul>
+}
 
 <partial name="/Views/Partials/Forms/_Newsletter.cshtml" />

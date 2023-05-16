@@ -39,6 +39,19 @@ builder.Services.ConfigureApplicationCookie(x =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+	var services = scope.ServiceProvider;
+
+	// Get the SeedService instance
+	var seedService = services.GetRequiredService<SeedService>();
+
+	// Call the SeedCategories method
+	await seedService.SeedCategories();
+
+	// ...
+}
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();

@@ -13,10 +13,4 @@ namespace ASP.NET_App.Models.Entities
 		public ICollection<ProductCategoryEntity> ProductCategories { get; set; }
 	}
 
-	public static class CategoryNames
-	{
-		public const string New = "New";
-		public const string Bestselling = "Bestselling";
-		public const string Featured = "Featured";
-	}
 }
