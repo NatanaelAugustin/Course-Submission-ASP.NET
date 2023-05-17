@@ -3,15 +3,46 @@
 <h1>@Model.Title</h1>
 
 <partial name="/Views/Partials/Components/_Showcase.cshtml" />
-@foreach (var category in Model.Categories)
-{
-    <h2>@category.Name</h2>
-    <ul>
-        @foreach (var productCategory in category.ProductCategories.Take(10))
-        {
-            <li>@productCategory.Product.ProductName</li>
-        }
-    </ul>
-}
+
+<section class="carousel-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                @foreach (var category in Model.Categories)
+                {
+                    <div class="mb-4">
+                        <h2>@category.Name</h2>
+                        <div id="@category.Name.ToLower()Carousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                @for (int i = 0; i < category.ProductCategories.Count; i += 6)
+                                {
+                                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                                        <div class="d-flex flex-wrap justify-content-between">
+                                            @foreach (var productCategory in category.ProductCategories.Skip(i).Take(6))
+                                            {
+                                                <a href="/product/details/@productCategory.Product.ArticleNumber" class="product-card">
+                                                    <img src="/images/placeholders/Image1.svg" alt="@productCategory.Product.ProductName" />
+                                                    <h4>@productCategory.Product.ProductName</h4>
+                                                </a>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#@category.Name.ToLower()Carousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#@category.Name.ToLower()Carousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
 
 <partial name="/Views/Partials/Forms/_Newsletter.cshtml" />

@@ -1,13 +1,22 @@
 ﻿@{
     ViewData["Title"] = "Product Name";
 }
-
 @model ASP.NET_App.Models.Entities.ProductEntity
 
-<h1>Product Details</h1>
+<div class="page-header">
+    <h1>Details</h1>
+    <p>Product-details</p>
+</div>
 
-<img src="@Url.Content("~/images/placeholders/" + Model.ProductImage)" alt="Product Image" />
-<h2>@Model.ProductName</h2>
-<p>@Model.Ingress</p>
-<p>@Model.Description</p>
-<p>@Model.Price</p>
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/images/placeholders/Image1.svg" class="img-fluid" alt="@Model.ProductName">
+        </div>
+        <div class="col-md-6">
+            <h1>@Model.ProductName</h1>
+            <p class="lead">@Model.Ingress</p>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+</div>

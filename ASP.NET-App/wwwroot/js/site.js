@@ -33,3 +33,25 @@ function toggleMenu(attribute) {
 toggleMenu('[data-option="toggle"]')
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    var carousels = document.querySelectorAll(".carousel");
+    Array.from(carousels).forEach(function (carousel) {
+        carousel.addEventListener("slide.bs.carousel", function () {
+            var activeItem = this.querySelector(".carousel-item.active");
+            var items = Array.from(this.querySelectorAll(".carousel-item"));
+
+            var activeItemIndex = items.indexOf(activeItem);
+
+            var startIndex = Math.max(activeItemIndex - 1, 0);
+            var endIndex = Math.min(startIndex + 6, items.length);
+
+            items.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            for (var i = startIndex; i < endIndex; i++) {
+                items[i].classList.add("active");
+            }
+        });
+    });
+});

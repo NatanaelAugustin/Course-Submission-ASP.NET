@@ -1,15 +1,27 @@
 ﻿@{
-	ViewData["Title"] = "Products";
-} 
+    ViewData["Title"] = "Products";
+}
 
 @model List<ASP.NET_App.Models.Entities.ProductEntity>
 
-<h1>Products</h1>
+<div class="page-header">
+    <h1>Products</h1>
+    <p>New - Featured - Popular </p>
+</div> 
 
-<ul>
-    @foreach (var product in Model)
-    {
-        <li><a href="@Url.Action("Details", new { id = product.ArticleNumber })">@product.ProductName @product.ProductImage</a></li>
-    }
-</ul>
-
+<div class="container py-4">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col">
+                <div class="card h-100 border border-dark">
+                    <img src="/images/placeholders/Image1.svg" class="card-img-top" alt="@product.ProductName">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <a href="@Url.Action("Details", new { id = product.ArticleNumber })" class="btn btn-primary">Information</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

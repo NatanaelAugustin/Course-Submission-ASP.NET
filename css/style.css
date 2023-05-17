@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
 html, body {
@@ -27,11 +27,6 @@ html, body {
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-.page.header {
-  background-color: #FAEFEF;
-  padding-top: 10rem;
 }
 
 .btn-toggle {
@@ -255,7 +250,9 @@ input:not([type=checkbox]):focus {
   position: relative;
   padding-left: 35px;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .custom-checkbox input {
   position: absolute;
@@ -867,11 +864,11 @@ footer .container {
 }
 
 .login-form {
-  padding: 15px 0 60px 0;
+  padding: 180px 0 60px 0;
 }
 @media (min-width: 992px) {
   .login-form {
-    padding: 15px 0;
+    padding: 180px 0;
   }
 }
 .login-form .container {
@@ -888,7 +885,8 @@ footer .container {
 }
 .login-form form {
   display: grid;
-  column-gap: 30px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
   row-gap: 30px;
   grid-template-columns: 1fr;
   grid-template-areas: "message" "email" "password" "rememberme" "button";
@@ -930,11 +928,11 @@ footer .container {
 }
 
 .register-form {
-  padding: 15px 0 60px 0;
+  padding: 180px 0 60px 0;
 }
 @media (min-width: 992px) {
   .register-form {
-    padding: 15px 0;
+    padding: 180px 0;
   }
 }
 .register-form .container {
@@ -951,7 +949,8 @@ footer .container {
 }
 .register-form form {
   display: grid;
-  column-gap: 30px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
   row-gap: 30px;
   grid-template-columns: 1fr;
   grid-template-areas: "firstname" "lastname" "streetname" "postalcode" "city" "mobile" "company" "email" "passsword" "confirmpassword" "profileimage" "terms" "button";
@@ -1010,11 +1009,11 @@ footer .container {
 }
 
 .contact-form {
-  padding: 15px 0 60px 0;
+  padding: 180px 0 60px 0;
 }
 @media (min-width: 992px) {
   .contact-form {
-    padding: 15px 0;
+    padding: 180px 0;
   }
 }
 .contact-form .container {
@@ -1056,13 +1055,6 @@ footer .container {
 }
 
 .page-header {
-  background-color: #F3F2F2;
   padding-top: 10rem;
-}
-.page-header h1 {
-  padding-left: 7rem;
-}
-.page-header p {
-  padding-left: 7rem;
-  padding-bottom: 5rem;
-}
+  background-color: beige;
+}/*# sourceMappingURL=style.css.map */

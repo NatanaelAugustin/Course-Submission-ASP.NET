@@ -19,7 +19,7 @@ public class ProductEntity
     [DataType("money")]
     public decimal Price { get; set; }
 
-    public ICollection<ProductCategoryEntity> ProductCategories { get; set; }
+    public ICollection<ProductCategoryEntity>? ProductCategories { get; set; }
 
 
 
