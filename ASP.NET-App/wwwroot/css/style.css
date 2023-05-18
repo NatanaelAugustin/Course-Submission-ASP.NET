@@ -1033,6 +1033,7 @@ footer .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start; /* Add this line to align items to the top */
   display: none;
 }
 .carousel-section .product-card {
@@ -1042,14 +1043,15 @@ footer .container {
   border: 1px solid #ccc;
   text-align: center;
   transition: background-color 0.3s ease;
-}
-.carousel-section .product-card:hover {
-  background-color: #f0f0f0;
+  display: flex; /* Add this line to enable flex display */
+  flex-direction: column; /* Add this line to stack product name below the image */
+  align-items: center; /* Add this line to center align content */
 }
 .carousel-section .product-card img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
+  align-self: center; /* Add this line to center align the image */
 }
 .carousel-section .carousel-item.active {
   display: block;

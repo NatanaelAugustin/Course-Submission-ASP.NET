@@ -50,10 +50,7 @@ namespace ASP.NET_App.Migrations
             modelBuilder.Entity("ASP.NET_App.Models.Entities.CategoryEntity", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -135,9 +132,8 @@ namespace ASP.NET_App.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<byte[]>("ProductImage")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("ProductImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
                         .IsRequired()

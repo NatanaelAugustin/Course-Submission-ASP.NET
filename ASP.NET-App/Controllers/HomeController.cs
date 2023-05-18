@@ -5,30 +5,30 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_App.Controllers
 {
-	public class HomeController : Controller
-	{
-		private readonly AppContexts _context;
+    public class HomeController : Controller
+    {
+        private readonly AppContexts _context;
 
-		public HomeController(AppContexts context)
-		{
-			_context = context;
-		}
+        public HomeController(AppContexts context)
+        {
+            _context = context;
+        }
 
-		public IActionResult Index()
-		{
-			// Fetch three categories with ten products each
-			var categories = _context.Category
-				.Include(c => c.ProductCategories)
-				.ThenInclude(pc => pc.Product)
-				.Take(3)
-				.ToList();
+        public IActionResult Index()
+        {
+            // Fetch three categories with ten products each
+            var categories = _context.Category
+                .Include(c => c.ProductCategories)
+                .ThenInclude(pc => pc.Product)
+                .Take(3)
+                .ToList();
 
-			var viewModel = new HomeIndexViewModel
-			{
-				Categories = categories
-			};
+            var viewModel = new HomeIndexViewModel
+            {
+                Categories = categories
+            };
 
-			return View(viewModel);
-		}
-	}
+            return View(viewModel);
+        }
+    }
 }

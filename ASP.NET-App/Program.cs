@@ -25,32 +25,32 @@ builder.Services.AddScoped<IContactUsService, ContactUsService>();
 // Identity
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 {
-	x.SignIn.RequireConfirmedAccount = false;
-	x.Password.RequiredLength = 8;
-	x.User.RequireUniqueEmail = true;
+    x.SignIn.RequireConfirmedAccount = false;
+    x.Password.RequiredLength = 8;
+    x.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<AppContexts>();
 
 // Cookies
 builder.Services.ConfigureApplicationCookie(x =>
 {
-	x.LoginPath = "/login";
-	x.LogoutPath = "/";
-	x.AccessDeniedPath = "/denied";
+    x.LoginPath = "/login";
+    x.LogoutPath = "/";
+    x.AccessDeniedPath = "/denied";
 });
 
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-	var services = scope.ServiceProvider;
+    var services = scope.ServiceProvider;
 
-	// Get the SeedService instance
-	var seedService = services.GetRequiredService<SeedService>();
+    // Get the SeedService instance
+    var seedService = services.GetRequiredService<SeedService>();
 
-	// Call the SeedCategories method
-	await seedService.SeedCategories();
+    // Call the SeedCategories method
+    await seedService.SeedCategories();
 
-	// ...
+    // ...
 }
 app.UseHsts();
 app.UseHttpsRedirection();
@@ -58,7 +58,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 app.MapControllerRoute(
-	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

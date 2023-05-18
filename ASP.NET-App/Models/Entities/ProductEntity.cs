@@ -9,7 +9,7 @@ public class ProductEntity
 
     [Required]
     public string? ProductName { get; set; }
-    public byte[]? ProductImage { get; set; }
+    public string? ProductImage { get; set; }
 
     [Required]
     public string? Ingress { get; set; }
@@ -20,7 +20,5 @@ public class ProductEntity
     public decimal Price { get; set; }
 
     public ICollection<ProductCategoryEntity>? ProductCategories { get; set; }
-
-
 
 }

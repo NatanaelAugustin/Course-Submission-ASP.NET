@@ -73,8 +73,7 @@ namespace ASP.NET_App.Migrations
                 name: "Category",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -105,7 +104,7 @@ namespace ASP.NET_App.Migrations
                 {
                     ArticleNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductImage = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    ProductImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Ingress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)

@@ -2,6 +2,7 @@
 using ASP.NET_App.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 
 namespace ASP.NET_App.Services
 {
@@ -27,65 +28,48 @@ namespace ASP.NET_App.Services
 
         public async Task SeedCategories()
         {
-            // Check if categories already exist
+            // Check if categories and products already exist
             var categoriesExist = await _context.Category.AnyAsync();
+            var productsExist = await _context.Products.AnyAsync();
 
-            if (!categoriesExist)
+            if (!categoriesExist && !productsExist)
             {
-                // Create and seed the three categories
-                var newCategory = new CategoryEntity { Name = "New" };
-                var popularCategory = new CategoryEntity { Name = "Popular" };
-                var featuredCategory = new CategoryEntity { Name = "Featured" };
+                var newCategory = new CategoryEntity { Id = 1, Name = "New" };
+                var popularCategory = new CategoryEntity { Id = 2, Name = "Popular" };
+                var featuredCategory = new CategoryEntity { Id = 3, Name = "Featured" };
 
-                _context.Category.AddRange(newCategory, popularCategory, featuredCategory);
-                await _context.SaveChangesAsync();
+                var categories = new List<CategoryEntity> { newCategory, popularCategory, featuredCategory };
 
-                // Check if products already exist
-                var productsExist = await _context.Products.AnyAsync();
+                var seedData = JArray.Parse(File.ReadAllText(@"Services\seed-data.json"));
+                var products = new List<ProductEntity>();
 
-                if (!productsExist)
+                foreach (var item in seedData)
                 {
-                    var products = new List<ProductEntity>();
+                    var product = item.ToObject<ProductEntity>();
+                    product.ProductCategories = new List<ProductCategoryEntity>()!;
 
-                    for (int i = 1; i <= 20; i++)
+                    // Check if "ProductCategories" property exists and is not null
+                    if (item["ProductCategories"] is JArray productCategories)
                     {
-                        // Create and seed the products
-                        var product = new ProductEntity
+                        foreach (var category in productCategories)
                         {
-                            ArticleNumber = $"P{i}",
-                            ProductName = $"Product {i}",
-                            Ingress = $"Ingress {i}",
-                            Description = $"Description {i}",
-                            Price = i * 10,
-                            ProductCategories = new List<ProductCategoryEntity>()
-                        };
+                            var categoryId = category.Value<int>("CategoryId");
 
-                        // Assign the product to each category
-                        if (i % 2 == 0)
-                        {
-                            product.ProductCategories.Add(new ProductCategoryEntity { CategoryId = newCategory.Id });
+                            if (categoryId == 1)
+                                product.ProductCategories.Add(new ProductCategoryEntity { CategoryId = 1, Category = newCategory });
+                            else if (categoryId == 2)
+                                product.ProductCategories.Add(new ProductCategoryEntity { CategoryId = 2, Category = popularCategory });
+                            else if (categoryId == 3)
+                                product.ProductCategories.Add(new ProductCategoryEntity { CategoryId = 3, Category = featuredCategory });
                         }
-                        if (i % 3 == 0)
-                        {
-                            product.ProductCategories.Add(new ProductCategoryEntity { CategoryId = popularCategory.Id });
-                        }
-                        if (i % 4 == 0)
-                        {
-                            product.ProductCategories.Add(new ProductCategoryEntity { CategoryId = featuredCategory.Id });
-                        }
-
-                        // Set the product image
-                        var imageName = $"Image{i}.svg";
-                        var imagePath = $"/images/placeholders/{imageName}";
-                        var imageBytes = await File.ReadAllBytesAsync($"wwwroot{imagePath}");
-                        product.ProductImage = imageBytes;
-
-                        products.Add(product);
                     }
 
-                    _context.Products.AddRange(products);
-                    await _context.SaveChangesAsync();
+                    products.Add(product);
                 }
+
+                _context.Category.AddRange(categories);
+                _context.Products.AddRange(products);
+                await _context.SaveChangesAsync();
             }
         }
     }

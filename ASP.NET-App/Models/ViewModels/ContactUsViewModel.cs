@@ -20,4 +20,4 @@ namespace ASP.NET_App.Models.ViewModels
         [Required(ErrorMessage = "Please enter your message")]
         public string Message { get; set; }
     }
-} 
+}
