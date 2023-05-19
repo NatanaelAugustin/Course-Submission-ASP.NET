@@ -8,15 +8,24 @@
     <p>Product-details</p>
 </div>
 
-<div class="container py-4">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="/images/placeholders/Image1.svg" class="img-fluid" alt="@Model.ProductName">
-        </div>
-        <div class="col-md-6">
-            <h1>@Model.ProductName</h1>
-            <p class="lead">@Model.Ingress</p>
-            <p>@Model.Description</p>
+<!-- Product details -->
+<section class="product-details">
+    <div class="container bg-light rounded p-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="/images/placeholders/@Model.ProductImage" class="product-image" alt="@Model.ProductName" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bg-light">
+                    <h3 class="product-name">Name: @Model.ProductName</h3>
+                    <h4 class="product-ingress">Ingress: @Model.Ingress</h4>
+                    <p class="product-description">Description @Model.Description</p>
+                    <h4 class="product-price">Price: @Model.Price $</h4>
+                    <!-- Add any additional properties you want to display -->
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>

@@ -46,7 +46,7 @@ namespace ASP.NET_App.Services
                 foreach (var item in seedData)
                 {
                     var product = item.ToObject<ProductEntity>();
-                    product.ProductCategories = new List<ProductCategoryEntity>()!;
+                    product!.ProductCategories = new List<ProductCategoryEntity>();
 
                     // Check if "ProductCategories" property exists and is not null
                     if (item["ProductCategories"] is JArray productCategories)

@@ -15,7 +15,7 @@
     <h1>Admin accounts</h1>
     @if (User.IsInRole("admin"))
     {
-        <p>@User.Identity.Name</p>
+        <p>@User.Identity!.Name</p>
     }
     </div>
     

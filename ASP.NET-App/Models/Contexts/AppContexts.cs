@@ -11,15 +11,15 @@ public class AppContexts : IdentityDbContext<AppUser>
     {
     }
 
-    public DbSet<AddressEntity> AspNetAdresses { get; set; }
+    public DbSet<AddressEntity> AspNetAdresses { get; set; } = null!;
 
-    public DbSet<UserAddressEntity> AspNetUsersAdresses { get; set; }
+    public DbSet<UserAddressEntity> AspNetUsersAdresses { get; set; } = null!;
 
-    public DbSet<ProductEntity> Products { get; set; }
+    public DbSet<ProductEntity> Products { get; set; } = null!;
 
-    public DbSet<ContactUsEntity> ContactUs { get; set; }
+    public DbSet<ContactUsEntity> ContactUs { get; set; } = null!;
 
-    public DbSet<CategoryEntity> Category { get; set; }
+    public DbSet<CategoryEntity> Category { get; set; } = null!;
 
 
 }

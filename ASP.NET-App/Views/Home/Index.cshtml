@@ -8,20 +8,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                @foreach (var category in Model.Categories)
+                @foreach (var category in Model.Categories!)
                 {
                     <div class="mb-4">
                         <h2>@category.Name</h2>
-                        <div id="@category.Name.ToLower()Carousel" class="carousel slide">
+                        <div id="@category.Name!.ToLower()Carousel" class="carousel slide">
                             <div class="carousel-inner">
-                                @for (int i = 0; i < category.ProductCategories.Count; i += 6)
+                                @for (int i = 0; i < category.ProductCategories!.Count; i += 6)
                                 {
                                     <div class="carousel-item @(i == 0 ? "active" : "")">
                                         <div class="d-flex flex-wrap justify-content-between">
                                             @foreach (var productCategory in category.ProductCategories.Skip(i).Take(6))
                                             {
-                                                <a href="/product/details/@productCategory.Product.ArticleNumber" class="product-card">
-                                                    <img src="/images/placeholders/@productCategory.Product.ProductImage" alt="@productCategory.Product.ProductName" />
+                                                <a href="/product/details/@productCategory.Product!`     .ArticleNumber" class="product-card">
+                                                    <img src="/images/placeholders/@productCategory.Product!.ProductImage" alt="@productCategory.Product.ProductName" />
                                                     <h4>@productCategory.Product.ProductName</h4>
                                                 </a>
                                             }
