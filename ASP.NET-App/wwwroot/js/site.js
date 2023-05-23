@@ -32,3 +32,30 @@ function toggleMenu(attribute) {
 }
 toggleMenu('[data-option="toggle"]')
 
+const validateEmail = (event) => {
+    const regEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (regEx.test(event.target.value)) {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+
+    } else
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid email"
+}
+
+const validatePassword = (event) => {
+    const regEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+    if (regEx.test(event.target.value)) {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+
+    } else
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid password"
+
+}
+
+const validateText = (event) => {
+    if (event.target.value.length >= 2) {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+
+    } else
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid length"
+}
+

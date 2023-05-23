@@ -50,9 +50,6 @@ namespace ASP.NET_App.Models.ViewModels
         [Required(ErrorMessage = "Your must confirm the password")]
         public string ConfirmPassword { get; set; } = null!;
 
-        [Display(Name = "Upload Profile Image")]
-        [DataType(DataType.Upload)]
-        public IFormFile? ImageFile { get; set; }
 
         [Display(Name = "I have read and accepts the terms and agreements")]
         [Required(ErrorMessage = "You must agree to the terms and conditions")]
