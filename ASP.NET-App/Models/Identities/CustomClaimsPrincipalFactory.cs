@@ -17,11 +17,11 @@ namespace ASP.NET_App.Models.Identities
         {
             var claimsIdentity = await base.GenerateClaimsAsync(user);
 
-            claimsIdentity.AddClaim(new Claim("DisplayFullName", $"{user.FirstName} {user.FirstName}"));
+            claimsIdentity.AddClaim(new Claim("DisplayFullName", $"{user.FirstName} {user.LastName}"));
 
             claimsIdentity.AddClaim(new Claim("DisplayFirstName", $"{user.FirstName}"));
 
-            claimsIdentity.AddClaim(new Claim("DisplayLastName", $"{user.FirstName}"));
+            claimsIdentity.AddClaim(new Claim("DisplayLastName", $"{user.LastName}"));
 
             return claimsIdentity;
         }

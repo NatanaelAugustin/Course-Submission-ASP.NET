@@ -59,3 +59,12 @@ const validateText = (event) => {
         document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid length"
 }
 
+// Smooth carousel navigation
+var carouselElements = document.querySelectorAll('.carousel');
+carouselElements.forEach(function (carouselElement) {
+    new bootstrap.Carousel(carouselElement, {
+        interval: 5000,
+        wrap: true,
+        pause: 'hover',
+    });
+});

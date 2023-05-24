@@ -14,11 +14,12 @@
         @foreach (var product in Model)
         {
             <div class="col">
-                <div class="card h-100 border border-dark">
+                <div class="card h-100 border">
                     <img src="/images/placeholders/@product.ProductImage" class="card-img-top" alt="@product.ProductName">
                     <div class="card-body">
                         <h5 class="card-title">@product.ProductName</h5>
-                        <a href="@Url.Action("Details", new { id = product.ArticleNumber })"  class="btn btn-theme">Information</a>
+                        <p class="card-ingress">@product.Ingress </p>
+                        <a href="@Url.Action("Details", new { id = product.ArticleNumber })"  class="btn btn-theme">Read More</a>
                     </div>
                 </div>
             </div>
