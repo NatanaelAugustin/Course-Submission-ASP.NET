@@ -1009,6 +1009,14 @@ footer .container {
   }
 }
 
+.account-container h1, .account-container h2, .account-container h3, .account-container p, .account-container span {
+  padding-left: 7rem;
+}
+
+.admin-container {
+  padding-left: 7rem;
+}
+
 .contact-form {
   padding: 15px 0 60px 0;
 }
@@ -1028,6 +1036,9 @@ footer .container {
 }
 .contact-form .title {
   margin-bottom: 40px;
+}
+.carousel-section {
+  padding-block: 5rem;
 }
 .carousel-section .carousel-item {
   display: flex;
@@ -1067,4 +1078,30 @@ footer .container {
 .page-header p {
   padding-left: 7rem;
   padding-bottom: 5rem;
+}
+
+.product-details {
+  height: 900px;
+  width: 100%;
+  padding-top: 5rem;
+}
+.product-details .container {
+  padding-block: 5rem;
+}
+.product-details .product-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.product-details .product-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.product-details .product-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.product-details .product-properties {
+  margin-bottom: 1rem;
 }

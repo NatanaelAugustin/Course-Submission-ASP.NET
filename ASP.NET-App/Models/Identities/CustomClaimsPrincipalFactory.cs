@@ -4,11 +4,11 @@ using System.Security.Claims;
 
 namespace ASP.NET_App.Models.Identities
 {
-    public class CustomClaimsPrincipalFactory : UserClaimsPrincipalFactory<AppUser>
+    public class CustomClaimsPrincipalFactory : UserClaimsPrincipalFactory<AppUser, IdentityRole>
     {
         private readonly UserManager<AppUser> userManager;
 
-        public CustomClaimsPrincipalFactory(UserManager<AppUser> userManager, IOptions<IdentityOptions> optionsAccessor) : base(userManager, optionsAccessor)
+        public CustomClaimsPrincipalFactory(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IOptions<IdentityOptions> optionsAccessor) : base(userManager, roleManager, optionsAccessor)
         {
             this.userManager = userManager;
         }
@@ -17,9 +17,26 @@ namespace ASP.NET_App.Models.Identities
         {
             var claimsIdentity = await base.GenerateClaimsAsync(user);
 
-            claimsIdentity.AddClaim(new Claim("DisplayName", $"{user.FirstName} {user.LastName}"));
+            claimsIdentity.AddClaim(new Claim("DisplayFullName", $"{user.FirstName} {user.FirstName}"));
+
+            claimsIdentity.AddClaim(new Claim("DisplayFirstName", $"{user.FirstName}"));
+
+            claimsIdentity.AddClaim(new Claim("DisplayLastName", $"{user.FirstName}"));
 
             return claimsIdentity;
         }
+        public override async Task<ClaimsPrincipal> CreateAsync(AppUser user)
+        {
+            var principal = await base.CreateAsync(user);
+
+            if (user != null && await UserManager.IsInRoleAsync(user, "admin"))
+            {
+                ((ClaimsIdentity)principal.Identity!).AddClaim(new Claim("IsAdmin", "true"));
+            }
+
+            return principal;
+        }
     }
 }
+
+

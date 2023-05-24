@@ -1,16 +1,13 @@
 ﻿@model IEnumerable<AppUser>
 @{
-    ViewData["Title"] = User.FindFirst("DisplayName")?.Value;
+    ViewData["Title"] = User.FindFirst("DisplayFirstName")?.Value;
 }
 
 <div class="page-header">
-    <h1>Account</h1>
+    <h1>Hello @User.FindFirst("DisplayFullName")?.Value! </h1>
+    <p>Here's an overview of your account</p>
 </div>
 
 <div class=" account-container">
-    <h1>Welcome to your account</h1>
-    <p>Here's an overview of your account'</p>
-    <div>
-            @User.Identity!.Name
-    </div>
+        <p> User name: @User.Identity!.Name </p>
 </div>

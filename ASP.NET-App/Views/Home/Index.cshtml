@@ -7,7 +7,7 @@
 <section class="carousel-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col">
                 @foreach (var category in Model.Categories!)
                 {
                     <div class="mb-4">
@@ -20,10 +20,11 @@
                                         <div class="d-flex flex-wrap justify-content-between">
                                             @foreach (var productCategory in category.ProductCategories.Skip(i).Take(6))
                                             {
-                                                <a href="/product/details/@productCategory.Product!`     .ArticleNumber" class="product-card">
+                                                <div class="product-card">
                                                     <img src="/images/placeholders/@productCategory.Product!.ProductImage" alt="@productCategory.Product.ProductName" />
                                                     <h4>@productCategory.Product.ProductName</h4>
-                                                </a>
+                                                    <a href="@Url.Action("Details", "Products", new { id = productCategory.Product.ArticleNumber })" class="btn btn-theme">Information</a>
+                                                </div>
                                             }
                                         </div>
                                     </div>

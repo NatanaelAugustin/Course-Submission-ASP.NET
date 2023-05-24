@@ -1,37 +1,36 @@
 ﻿@model IEnumerable<AppUser>
 
 @{
-    ViewData["Title"] = User.FindFirst("DisplayName")?.Value;
+    ViewData["Title"] = User.FindFirst("DisplayFirstName")?.Value;
 }
 <div class="page-header">
-    <h1>Admin Backlog</h1>
+    <h1>Welcome to Admin Backoffice</h1>
+    <p>Here you can see an overview of all accounts that are registerd at this website</p>
 </div>
 
 <div class="admin-container">
-    <h1>Welcome to Admin Backoffice</h1>
-    <p>Here you can see an overview of all accounts that are registerd at this website</p>
     <div>
-    <div>
-    <h1>Admin accounts</h1>
-    @if (User.IsInRole("admin"))
-    {
-        <p>@User.Identity!.Name</p>
-    }
-    </div>
+         <div>
+            <h2>Admin accounts</h2>
+            @if (User.IsInRole("admin"))
+             { 
+                 <p> This is the administator account</p>
+             }
+        </div>
     
     <div>
-        <h1>Other accounts</h1>
+        <h2>All the accounts</h2>
             @foreach(var item in Model)
             {
               <div>
-                <p>
-                    @item.FirstName
-                    @item.LastName
-                </p>
-   
-                <p>
-                    @item.UserName
-                </p>
+                    <p><strong>Username:</strong> @item.UserName</p>
+                    <p>    <strong>Fullname:</strong> @item.FirstName @item.LastName</p>
+                    <p><strong>Email:</strong> @item.Email</p>
+                    <p><strong>Phonenumber:</strong> @item.PhoneNumber </p>
+
+                    <br />
+                    <p>==================================================================</p>
+                    <br />
               </div>
             }
         </div>
