@@ -42,14 +42,36 @@ const validateEmail = (event) => {
 }
 
 const validatePassword = (event) => {
-    const regEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+    const regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[^\da-zA-Z]).{8,}$/;
+
     if (regEx.test(event.target.value)) {
-        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
-
-    } else
-        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid password"
-
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "";
+    } else {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid password";
+    }
 }
+
+const validateRegisterPassword = (event) => {
+    const regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[^\da-zA-Z]).{8,}$/;
+
+    if (regEx.test(event.target.value)) {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "";
+    } else {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Password must meet the following requirements:<br>- At least one lowercase letter<br>- At least one uppercase letter<br>- At least one digit<br>- At least one special character from the set<br>- At least one character that is neither a letter nor a digit<br>- Minimum length of 8 characters";
+    }
+}
+
+const validateConfirmPassword = (event) => {
+    const confirmPassword = event.target.value;
+    const passwordField = document.querySelector("#Password"); // Replace with the actual ID of the password field
+
+    if (confirmPassword === passwordField.value) {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "";
+    } else {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "The passwords don't match";
+    }
+}
+
 
 const validateText = (event) => {
     if (event.target.value.length >= 2) {
@@ -68,3 +90,4 @@ carouselElements.forEach(function (carouselElement) {
         pause: 'hover',
     });
 });
+

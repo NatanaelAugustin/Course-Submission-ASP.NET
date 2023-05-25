@@ -29,6 +29,11 @@ html, body {
   right: 0;
 }
 
+.page.header {
+  background-color: #FAEFEF;
+  padding-top: 10rem;
+}
+
 .btn-toggle {
   cursor: pointer;
   font-family: "Poppins", sans-serif;
@@ -864,11 +869,11 @@ footer .container {
 }
 
 .login-form {
-  padding: 180px 0 60px 0;
+  padding: 15px 0 60px 0;
 }
 @media (min-width: 992px) {
   .login-form {
-    padding: 180px 0;
+    padding: 15px 0;
   }
 }
 .login-form .container {
@@ -928,11 +933,11 @@ footer .container {
 }
 
 .register-form {
-  padding: 180px 0 60px 0;
+  padding: 15px 0 60px 0;
 }
 @media (min-width: 992px) {
   .register-form {
-    padding: 180px 0;
+    padding: 15px 0;
   }
 }
 .register-form .container {
@@ -1008,12 +1013,20 @@ footer .container {
   }
 }
 
+.account-container h1, .account-container h2, .account-container h3, .account-container p, .account-container span {
+  padding-left: 7rem;
+}
+
+.admin-container {
+  padding-left: 7rem;
+}
+
 .contact-form {
-  padding: 180px 0 60px 0;
+  padding: 15px 0 60px 0;
 }
 @media (min-width: 992px) {
   .contact-form {
-    padding: 180px 0;
+    padding: 15px 0;
   }
 }
 .contact-form .container {
@@ -1028,10 +1041,14 @@ footer .container {
 .contact-form .title {
   margin-bottom: 40px;
 }
+.carousel-section {
+  padding-block: 5rem;
+}
 .carousel-section .carousel-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
   display: none;
 }
 .carousel-section .product-card {
@@ -1041,20 +1058,77 @@ footer .container {
   border: 1px solid #ccc;
   text-align: center;
   transition: background-color 0.3s ease;
-}
-.carousel-section .product-card:hover {
-  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 .carousel-section .product-card img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
+  align-self: center;
 }
 .carousel-section .carousel-item.active {
   display: block;
 }
+.carousel-section .carousel-control-prev,
+.carousel-section .carousel-control-next {
+  width: 5%;
+}
+.carousel-section .carousel-control-prev:hover,
+.carousel-section .carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.carousel-section .btn-theme-carousel {
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #FA3150;
+  background-color: #FA3150;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+.carousel-section .btn-theme-carousel:hover {
+  border: 1px solid #292929;
+  background-color: #292929;
+  color: #FFFFFF;
+}
 
 .page-header {
+  background-color: #F3F2F2;
   padding-top: 10rem;
-  background-color: beige;
+}
+.page-header h1 {
+  padding-left: 7rem;
+}
+.page-header p {
+  padding-left: 7rem;
+  padding-bottom: 5rem;
+}
+
+.product-details {
+  height: 900px;
+  width: 100%;
+  padding-top: 5rem;
+}
+.product-details .container {
+  padding-block: 5rem;
+}
+.product-details .product-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.product-details .product-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.product-details .product-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.product-details .product-properties {
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=style.css.map */

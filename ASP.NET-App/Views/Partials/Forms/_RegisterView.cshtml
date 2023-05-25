@@ -58,13 +58,13 @@
       
             <div class="password form-group">
                 <label asp-for="Password">Password*</label>
-                <input asp-for="Password" type="password" onkeyup="validatePassword(event)"   />
+                <input asp-for="Password" type="password" onkeyup="validateRegisterPassword(event)" />
                 <span asp-validation-for="Password" class="error"></span>
             </div>
 
             <div class="confirmpassword form-group">
-                <label asp-for="ConfirmPassword">Password*</label>
-                <input asp-for="ConfirmPassword" type="password" onkeyup="validatePassword(event) " />
+                <label asp-for="ConfirmPassword">Confirm Password*</label>
+                <input asp-for="ConfirmPassword" type="password" onkeyup="validateConfirmPassword(event) " />
                 <span asp-validation-for="ConfirmPassword" class="error"></span>
             </div>
 

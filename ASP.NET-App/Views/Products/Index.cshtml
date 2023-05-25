@@ -19,7 +19,13 @@
                     <div class="card-body">
                         <h5 class="card-title">@product.ProductName</h5>
                         <p class="card-ingress">@product.Ingress </p>
-                        <a href="@Url.Action("Details", new { id = product.ArticleNumber })"  class="btn btn-theme">Read More</a>
+                        <p class="card-price">$ @product.Price.ToString()</p>
+                        <div class="d-flex justify-content-between">
+                            <a href="@Url.Action("Details", new { id = product.ArticleNumber })" class="btn btn-theme">Info</a>
+                            <a href="@Url.Action("", "UnderConstruction")" class="btn btn-theme">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

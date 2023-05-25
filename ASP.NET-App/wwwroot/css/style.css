@@ -1068,9 +1068,28 @@ footer .container {
 .carousel-section .carousel-item.active {
   display: block;
 }
+.carousel-section .carousel-control-prev,
+.carousel-section .carousel-control-next {
+  width: 5%;
+}
 .carousel-section .carousel-control-prev:hover,
 .carousel-section .carousel-control-next:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.carousel-section .btn-theme-carousel {
+  padding-inline: 1rem;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #FA3150;
+  background-color: #FA3150;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+.carousel-section .btn-theme-carousel:hover {
+  border: 1px solid #292929;
+  background-color: #292929;
+  color: #FFFFFF;
 }
 
 .page-header {
@@ -1109,4 +1128,22 @@ footer .container {
 }
 .product-details .product-properties {
   margin-bottom: 1rem;
+}
+.product-details .btn-theme-carousel {
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #FA3150;
+  background-color: #FA3150;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+.product-details .btn-theme-carousel:hover {
+  border: 1px solid #292929;
+  background-color: #292929;
+  color: #FFFFFF;
+}
+.product-details .product-attributes {
+  height: 100%;
+  padding-inline: 1rem;
 }
