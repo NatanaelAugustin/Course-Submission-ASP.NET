@@ -14,7 +14,7 @@
             <h2>Admin accounts</h2>
             @if (User.IsInRole("admin"))
              { 
-                 <p> This is the administator account</p>
+                 <p> @User.Identity!.Name</p>
              }
         </div>
     
@@ -23,13 +23,7 @@
             @foreach(var item in Model)
             {
               <div>
-                    <p><strong>Username:</strong> @item.UserName</p>
-                    <p>    <strong>Fullname:</strong> @item.FirstName @item.LastName</p>
-                    <p><strong>Email:</strong> @item.Email</p>
-                    <p><strong>Phonenumber:</strong> @item.PhoneNumber </p>
-
-                    <br />
-                    <p>==================================================================</p>
+                    <p><strong>Username:</strong> @item.UserName  --- <strong>Fullname:</strong> @item.FirstName @item.LastName</p>
                     <br />
               </div>
             }

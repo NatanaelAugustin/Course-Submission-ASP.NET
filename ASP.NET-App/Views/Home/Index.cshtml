@@ -20,24 +20,24 @@
                                         <div class="row">
                                             @foreach (var productCategory in category.ProductCategories.Skip(i).Take(6))
                                             {
-                                               <div class="col-lg-2 col-md-4 col-sm-6">
-                                                <div class="card h-100 rounded">
-                                                    <img class="rounded-top" src="/images/placeholders/@productCategory.Product!.ProductImage" alt="@productCategory.Product!.ProductName" />
-                                                    <div class="card-body d-flex flex-column rounded">
-                                                        <h4>@productCategory.Product.ProductName</h4>
-                                                        <p class="card-ingress">@productCategory.Product.Ingress</p>
-                                                        <p class="card-price">$ @productCategory.Product.Price.ToString()</p>
-                                                        <div class="mt-auto">
-                                                            <div class="d-flex justify-content-between">
-                                                                <a href="@Url.Action("Details", "Products", new { id = productCategory.Product.ArticleNumber })" class="btn btn-theme-carousel">Info</a>
+                                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                                    <div class="card h-100 rounded product-details-card">
+                                                        <img class="rounded-top" src="/images/placeholders/@productCategory.Product!.ProductImage" alt="@productCategory.Product!.ProductName" />
+                                                        <div class="card-body d-flex flex-column rounded">
+                                                            <h4>@productCategory.Product.ProductName</h4>
+                                                            <p class="card-ingress">@productCategory.Product.Ingress</p>
+                                                            <p class="card-price">$ @productCategory.Product.Price.ToString()</p>
+                                                            <div class="mt-auto">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <a href="@Url.Action("Details", "Products", new { id = productCategory.Product.ArticleNumber })" class="btn btn-theme-carousel">Info</a>
                                                                     <a href="@Url.Action("", "UnderConstruction")" class="btn btn-theme-carousel">
                                                                         <i class="fas fa-shopping-cart"></i>
                                                                     </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             }
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#@category.Name.ToLower()Carousel" data-bs-slide="next" >
+                            <button class="carousel-control-next" type="button" data-bs-target="#@category.Name.ToLower()Carousel" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -58,3 +58,5 @@
         </div>
     </div>
 </section>
+
+<partial name="/Views/Partials/Forms/_Newsletter.cshtml" />

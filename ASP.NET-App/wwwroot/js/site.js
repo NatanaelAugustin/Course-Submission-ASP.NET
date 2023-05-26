@@ -1,4 +1,5 @@
-﻿function footerPosition(element, scrollHeight, innerHeight) {
+﻿
+function footerPosition(element, scrollHeight, innerHeight) {
     try {
         const _element = document.querySelector(element)
         const isTallerThanScreen = scrollHeight >= (innerHeight + _element.scrollHeight)
@@ -7,8 +8,7 @@
         _element.classList.toggle('position-static', isTallerThanScreen)
     } catch { }
 }
-footerPosition('footer', document.body.scrollHeight, window.innerHeight)
-
+footerPosition('footer', document.body.scrollHeight, window.innerHeight);
 
 function toggleMenu(attribute) {
     try {
@@ -32,6 +32,8 @@ function toggleMenu(attribute) {
 }
 toggleMenu('[data-option="toggle"]')
 
+// Validate Email
+
 const validateEmail = (event) => {
     const regEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (regEx.test(event.target.value)) {
@@ -40,6 +42,7 @@ const validateEmail = (event) => {
     } else
         document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid email"
 }
+// validate password for login page
 
 const validatePassword = (event) => {
     const regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[^\da-zA-Z]).{8,}$/;
@@ -50,7 +53,7 @@ const validatePassword = (event) => {
         document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid password";
     }
 }
-
+// validate password for register page
 const validateRegisterPassword = (event) => {
     const regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[^\da-zA-Z]).{8,}$/;
 
@@ -60,10 +63,10 @@ const validateRegisterPassword = (event) => {
         document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Password must meet the following requirements:<br>- At least one lowercase letter<br>- At least one uppercase letter<br>- At least one digit<br>- At least one special character from the set<br>- At least one character that is neither a letter nor a digit<br>- Minimum length of 8 characters";
     }
 }
-
+// validate confirm password for login page
 const validateConfirmPassword = (event) => {
     const confirmPassword = event.target.value;
-    const passwordField = document.querySelector("#Password"); // Replace with the actual ID of the password field
+    const passwordField = document.querySelector("#Password"); 
 
     if (confirmPassword === passwordField.value) {
         document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "";
@@ -72,7 +75,7 @@ const validateConfirmPassword = (event) => {
     }
 }
 
-
+// validatet textboxes for all the registerpage
 const validateText = (event) => {
     if (event.target.value.length >= 2) {
         document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
@@ -91,3 +94,20 @@ carouselElements.forEach(function (carouselElement) {
     });
 });
 
+// Text showing up when submitting contact-message
+
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contactForm');
+  const submitButton = document.getElementById('contactSubmitButton');
+  const submitMessage = document.getElementById('contactSubmitMessage');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    submitMessage.style.display = 'block';
+    form.reset();
+
+    setTimeout(function () {
+      submitMessage.style.display = 'none';
+    }, 3000);
+  });
+});

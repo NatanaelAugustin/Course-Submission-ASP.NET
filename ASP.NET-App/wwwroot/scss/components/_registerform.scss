@@ -23,11 +23,11 @@
         column-gap: 30px;
         row-gap: 30px;
         grid-template-columns: 1fr;
-        grid-template-areas: "firstname" "lastname" "streetname" "postalcode" "city" "mobile" "company" "email" "passsword" "confirmpassword" "profileimage" "terms" "button";
+        grid-template-areas: "firstname" "lastname" "streetname" "postalcode" "city" "mobile" "company" "email" "passsword" "confirmpassword" "terms" "button";
 
         @include lg {
             grid-template-columns: 1fr 1fr;
-            grid-template-areas: "firstname lastname" "streetname streetname" "postalcode city" "mobile company" "email email" "password password" "confirmpassword confirmpassword" "profileimage profileimage" "terms terms" "button button";
+            grid-template-areas: "firstname lastname" "streetname streetname" "postalcode city" "mobile company" "email email" "password password" "confirmpassword confirmpassword" "terms terms" "button button";
         }
 
         .firstname {

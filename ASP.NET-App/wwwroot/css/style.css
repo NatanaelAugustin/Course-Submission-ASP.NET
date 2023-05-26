@@ -34,6 +34,18 @@ html, body {
   padding-top: 10rem;
 }
 
+.page-header {
+  background-color: #F3F2F2;
+  padding-top: 10rem;
+}
+.page-header h1 {
+  padding-left: 7rem;
+}
+.page-header p {
+  padding-left: 7rem;
+  padding-bottom: 5rem;
+}
+
 .btn-toggle {
   cursor: pointer;
   font-family: "Poppins", sans-serif;
@@ -954,12 +966,12 @@ footer .container {
   column-gap: 30px;
   row-gap: 30px;
   grid-template-columns: 1fr;
-  grid-template-areas: "firstname" "lastname" "streetname" "postalcode" "city" "mobile" "company" "email" "passsword" "confirmpassword" "profileimage" "terms" "button";
+  grid-template-areas: "firstname" "lastname" "streetname" "postalcode" "city" "mobile" "company" "email" "passsword" "confirmpassword" "terms" "button";
 }
 @media (min-width: 992px) {
   .register-form form {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "firstname lastname" "streetname streetname" "postalcode city" "mobile company" "email email" "password password" "confirmpassword confirmpassword" "profileimage profileimage" "terms terms" "button button";
+    grid-template-areas: "firstname lastname" "streetname streetname" "postalcode city" "mobile company" "email email" "password password" "confirmpassword confirmpassword" "terms terms" "button button";
   }
 }
 .register-form form .firstname {
@@ -1037,6 +1049,7 @@ footer .container {
 .contact-form .title {
   margin-bottom: 40px;
 }
+
 .carousel-section {
   padding-block: 5rem;
 }
@@ -1091,17 +1104,12 @@ footer .container {
   background-color: #292929;
   color: #FFFFFF;
 }
-
-.page-header {
+.carousel-section .product-details-card {
   background-color: #F3F2F2;
-  padding-top: 10rem;
 }
-.page-header h1 {
-  padding-left: 7rem;
-}
-.page-header p {
-  padding-left: 7rem;
-  padding-bottom: 5rem;
+
+.products-container .product-details-card {
+  background-color: #F3F2F2;
 }
 
 .product-details {
@@ -1146,4 +1154,7 @@ footer .container {
 .product-details .product-attributes {
   height: 100%;
   padding-inline: 1rem;
+}
+.product-details .product-details-card {
+  background-color: #F3F2F2;
 }
