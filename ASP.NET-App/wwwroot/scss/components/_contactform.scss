@@ -1,0 +1,20 @@
+.contact-form {
+    padding: 15px 0 60px 0;
+
+    @include lg {
+        padding: 15px 0;
+    }
+
+    .container {
+        border: 0px solid $color-dark-5;
+        padding: 30px;
+
+        @include md {
+            border: 1px solid $color-dark-5;
+        }
+    }
+
+    .title {
+        margin-bottom: 40px;
+    }
+}

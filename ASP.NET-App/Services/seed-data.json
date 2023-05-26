@@ -1,0 +1,429 @@
+[
+  {
+    "ArticleNumber": "P1",
+    "ProductName": "Laptop 1",
+    "Ingress": "Powerful and compact",
+    "Description": "A high-performance laptop with advanced features",
+    "Price": 999.99,
+    "ProductImage": "product(1).jpg",
+    "ProductCategories": [
+      {
+        "CategoryId": 1
+      },
+      {
+        "CategoryId": 3
+      }
+    ]
+  },
+  {
+    "ArticleNumber": "P2",
+    "ProductName": "Desktop 1",
+    "Ingress": "Versatile and reliable",
+    "Description": "A customizable desktop computer for home and office use",
+    "Price": 1499.99,
+    "ProductImage": "product(2).jpg",
+    "ProductCategories": [
+      {
+        "CategoryId": 1
+      },
+      {
+        "CategoryId": 2
+      }
+    ]
+  },
+    {
+      "ArticleNumber": "P3",
+      "ProductName": "UltraBook 2000",
+      "Ingress": "Powerful and compact",
+      "Description": "A high-performance ultrabook with advanced features",
+      "Price": 999.99,
+      "ProductImage": "product(3).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P4",
+      "ProductName": "GamingStation X",
+      "Ingress": "Ultimate gaming experience",
+      "Description": "A gaming desktop computer for immersive gameplay",
+      "Price": 1999.99,
+      "ProductImage": "product(4).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P5",
+      "ProductName": "PowerBook 500",
+      "Ingress": "Sleek and powerful",
+      "Description": "A versatile laptop with cutting-edge performance",
+      "Price": 1299.99,
+      "ProductImage": "product(5).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P6",
+      "ProductName": "OfficePro 2022",
+      "Ingress": "Efficiency at its best",
+      "Description": "An efficient desktop computer for work and productivity",
+      "Price": 899.99,
+      "ProductImage": "product(6).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P7",
+      "ProductName": "DesignBook Elite",
+      "Ingress": "Unleash your creativity",
+      "Description": "A powerful laptop for graphic design and creative tasks",
+      "Price": 1599.99,
+      "ProductImage": "product(7).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P8",
+      "ProductName": "Multitasker Pro",
+      "Ingress": "Seamless multitasking",
+      "Description": "A multitasking desktop computer for increased productivity",
+      "Price": 1099.99,
+      "ProductImage": "product(8).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P9",
+      "ProductName": "TitanBook X1",
+      "Ingress": "Performance on the go",
+      "Description": "A high-performance laptop for professionals and gamers",
+      "Price": 1799.99,
+      "ProductImage": "product(9).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P10",
+      "ProductName": "PowerStation Pro",
+      "Ingress": "Unleash your potential",
+      "Description": "A desktop computer designed for speed and efficiency",
+      "Price": 1299.99,
+      "ProductImage": "product(10).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 2
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P11",
+      "ProductName": "SwiftBook 2023",
+      "Ingress": "Slim and lightweight",
+      "Description": "A sleek and lightweight laptop for everyday use",
+      "Price": 699.99,
+      "ProductImage": "product(11).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P12",
+      "ProductName": "EfficientDesktop 2023",
+      "Ingress": "Effortless performance",
+      "Description": "A reliable desktop computer for smooth multitasking",
+      "Price": 999.99,
+      "ProductImage": "product(12).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P13",
+      "ProductName": "ProBook X3",
+      "Ingress": "Portable powerhouse",
+      "Description": "A portable laptop with exceptional performance",
+      "Price": 1499.99,
+      "ProductImage": "product(13).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P14",
+      "ProductName": "HomeOffice Deluxe",
+      "Ingress": "Seamless computing",
+      "Description": "A seamless desktop computer for efficient workflows",
+      "Price": 1199.99,
+      "ProductImage": "product(14).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P15",
+      "ProductName": "VersaBook 2023",
+      "Ingress": "Unlimited possibilities",
+      "Description": "A versatile laptop for work, play, and everything in between",
+      "Price": 999.99,
+      "ProductImage": "product(15).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P16",
+      "ProductName": "PowerTower X2",
+      "Ingress": "Unmatched performance",
+      "Description": "A desktop computer designed for power users and gamers",
+      "Price": 1699.99,
+      "ProductImage": "product(16).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 2
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P17",
+      "ProductName": "WorkBook Pro",
+      "Ingress": "Work without boundaries",
+      "Description": "A boundary-breaking laptop for productivity on the go",
+      "Price": 1299.99,
+      "ProductImage": "product(17).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P18",
+      "ProductName": "HomeDesktop Elite",
+      "Ingress": "Efficient computing",
+      "Description": "An efficient desktop computer for home and office use",
+      "Price": 899.99,
+      "ProductImage": "product(18).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P19",
+      "ProductName": "InnovationBook X5",
+      "Ingress": "Innovative design",
+      "Description": "A cutting-edge laptop with innovative features",
+      "Price": 1499.99,
+      "ProductImage": "product(19).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P20",
+      "ProductName": "BusinessTower Pro",
+      "Ingress": "Powerful business computing",
+      "Description": "A powerful desktop computer for business and enterprise use",
+      "Price": 1699.99,
+      "ProductImage": "product(20).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P21",
+      "ProductName": "GamerBook X",
+      "Ingress": "Unleash the gamer within",
+      "Description": "A gaming laptop for immersive gaming experiences",
+      "Price": 1999.99,
+      "ProductImage": "product(21).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P22",
+      "ProductName": "StudioDesktop Pro",
+      "Ingress": "Create without limits",
+      "Description": "A powerful desktop computer for creative professionals",
+      "Price": 1499.99,
+      "ProductImage": "product(22).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P23",
+      "ProductName": "MobileBook Plus",
+      "Ingress": "On-the-go productivity",
+      "Description": "A mobile laptop for productivity anywhere, anytime",
+      "Price": 1199.99,
+      "ProductImage": "product(23).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P24",
+      "ProductName": "BusinessDesktop Elite",
+      "Ingress": "Efficient business computing",
+      "Description": "An efficient desktop computer for business use",
+      "Price": 1099.99,
+      "ProductImage": "product(24).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P25",
+      "ProductName": "SpeedBook Ultra",
+      "Ingress": "Unleash the speed",
+      "Description": "A high-speed laptop for demanding tasks",
+      "Price": 1599.99,
+      "ProductImage": "product(25).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P26",
+      "ProductName": "HomeTheater Deluxe",
+      "Ingress": "Immersive multimedia experience",
+      "Description": "A multimedia desktop computer for home entertainment",
+      "Price": 1299.99,
+      "ProductImage": "product(26).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 2
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P27",
+      "ProductName": "InfinityBook X7",
+      "Ingress": "Endless possibilities",
+      "Description": "A laptop that pushes the boundaries of performance",
+      "Price": 1799.99,
+      "ProductImage": "product(27).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    },
+    {
+      "ArticleNumber": "P28",
+      "ProductName": "PowerTower Pro",
+      "Ingress": "Unparalleled power",
+      "Description": "A high-performance desktop computer for power users",
+      "Price": 1899.99,
+      "ProductImage": "product(28).jpg",
+      "ProductCategories": [
+        {
+          "CategoryId": 1
+        },
+        {
+          "CategoryId": 2
+        },
+        {
+          "CategoryId": 3
+        }
+      ]
+    }
+  ]

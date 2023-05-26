@@ -1,0 +1,46 @@
+﻿@model ContactUsViewModel
+
+<section class="contact-form">
+    <div class="container">
+        <p>Send us an email and we'll get back to you as soon as possible.</p>
+
+        <form id="contactForm" method="post" novalidate>
+
+            <div asp-validation-summary="ModelOnly" class="form-group error"></div>
+
+            <div class="firstname form-group">
+                <label asp-for="FirstName"> Firstname</label>
+                <input asp-for="FirstName"  type="firstname" onkeyup="validateText(event)"/>
+                <span asp-validation-for="FirstName" class="error"></span>
+            </div>
+
+            <div class="lastname form-group">
+                <label asp-for="LastName"> Lastname</label>
+                <input asp-for="LastName"  type="lastname" onkeyup="validateText(event)"/>
+                <span asp-validation-for="LastName" class="error"></span>
+            </div>
+
+            <div class="email form-group">
+                <label asp-for="Email"></label>
+                    <input asp-for="Email" type="email" onkeyup="validateEmail(event)" />
+                <span asp-validation-for="Email" class="error"></span>
+            </div>
+                <div class="phoneNumber form-group">
+                    <label asp-for="PhoneNumber">Phonenumber</label>
+                    <input asp-for="PhoneNumber "  type="phonenumber" onkeyup="validateText(event)" />
+                    <span asp-validation-for="PhoneNumber" class="error"></span>
+                </div>
+
+         
+             <div class="message form-group">
+                <label asp-for="Message"> Ask us something!</label>
+                    <input asp-for="Message " type="message" onkeyup="validateText(event)" />
+                <span asp-validation-for="Message" class="error"></span>
+             </div>
+
+            <button id="contactSubmitButton" class="btn btn-theme" type="submit">Submit</button>
+            <p id="contactSubmitMessage" class="text-success" style="display: none;">Your message has been sent.</p>
+        </form>
+       </div>
+</section>
+
