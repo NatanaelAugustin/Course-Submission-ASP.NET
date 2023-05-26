@@ -250,7 +250,7 @@ namespace ASP.NET_App.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductArticleNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProductArticleNumber = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -266,8 +266,7 @@ namespace ASP.NET_App.Migrations
                         name: "FK_ProductCategoryEntity_Products_ProductArticleNumber",
                         column: x => x.ProductArticleNumber,
                         principalTable: "Products",
-                        principalColumn: "ArticleNumber",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ArticleNumber");
                 });
 
             migrationBuilder.CreateIndex(

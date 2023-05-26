@@ -21,5 +21,13 @@ public class AppContexts : IdentityDbContext<AppUser>
 
     public DbSet<CategoryEntity> Category { get; set; } = null!;
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
 
+        // Configure the Price property in ProductEntity
+        modelBuilder.Entity<ProductEntity>()
+            .Property(p => p.Price)
+            .HasColumnType("decimal(18,2)");
+    }
 }

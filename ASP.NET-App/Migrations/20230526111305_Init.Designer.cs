@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NET_App.Migrations
 {
     [DbContext(typeof(AppContexts))]
-    [Migration("20230524084827_Updated register model")]
-    partial class Updatedregistermodel
+    [Migration("20230526111305_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
