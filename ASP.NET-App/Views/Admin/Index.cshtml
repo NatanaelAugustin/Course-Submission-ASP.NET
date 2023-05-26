@@ -1,32 +1,51 @@
 ﻿@model IEnumerable<AppUser>
+@using Microsoft.AspNetCore.Identity
+@using System.IO;
 
 @{
     ViewData["Title"] = User.FindFirst("DisplayFirstName")?.Value;
 }
+
+
 <div class="page-header">
     <h1>Welcome to Admin Backoffice</h1>
-    <p>Here you can see an overview of all accounts that are registerd at this website</p>
+    <p>Here you can see an overview of all accounts that are registered on this website</p>
 </div>
 
 <div class="admin-container">
-    <div>
-         <div>
-            <h2>Admin accounts</h2>
-            @if (User.IsInRole("admin"))
-             { 
-                 <p> @User.Identity!.Name</p>
-             }
-        </div>
-    
-    <div>
-        <h2>All the accounts</h2>
-            @foreach(var item in Model)
-            {
-              <div>
-                    <p><strong>Username:</strong> @item.UserName  --- <strong>Fullname:</strong> @item.FirstName @item.LastName</p>
-                    <br />
-              </div>
-            }
-        </div>
-    </div>
+            <h2>All accounts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Fullname</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.UserName</td>
+                            <td>@item.FirstName @item.LastName</td>
+                            <td>@GetUserRole(item)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 </div>
+
+@functions {
+    string GetUserRole(AppUser user)
+    {
+        var userManager = (UserManager<AppUser>)ViewContext.HttpContext.RequestServices.GetService(typeof(UserManager<AppUser>))!;
+        if (userManager.IsInRoleAsync(user, "admin").Result)
+        {
+            return "Admin";
+        }
+        else
+        {
+            return "User";
+        }
+    }
+}

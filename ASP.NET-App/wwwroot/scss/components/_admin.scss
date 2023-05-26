@@ -1,5 +1,17 @@
-﻿.admin-container {
+﻿
+.admin-container {
+    padding: 20px;
     padding-left: 7rem;
+}
 
-  
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
